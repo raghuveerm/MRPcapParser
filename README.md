@@ -1,6 +1,8 @@
 Hadoop PCAP library
 ===================
 
+Parsing large number of small files in binary format. Currently getting OutofMemoryError looking for your contribution.
+
 License
 -------
 This library is distributed under the LGPL.  
