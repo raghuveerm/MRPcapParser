@@ -2,7 +2,6 @@ package net.ripe.hadoop.pcap.parse;
 
 import java.io.IOException;
 
-import net.ripe.hadoop.pcap.io.CombineBinaryInputFormat;
 import net.ripe.hadoop.pcap.io.PcapInputFormat;
 import net.ripe.hadoop.pcap.packet.KeyWritable;
 import net.ripe.hadoop.pcap.packet.ValueWritable;
@@ -29,8 +28,7 @@ public class PcapJobRunner extends Configured implements Tool {
 
 	public static void main(String[] args) throws IOException, Exception {
 
-		int res = ToolRunner
-				.run(new Configuration(), new PcapJobRunner(), args);
+		int res = ToolRunner.run(new Configuration(), new PcapJobRunner(), args);
 		System.exit(res);
 	}
 
@@ -56,13 +54,12 @@ public class PcapJobRunner extends Configured implements Tool {
 		job.setReducerClass(PcapReducer.class);
 
 		job.setInputFormatClass(PcapInputFormat.class);
-		// CombineBinaryInputFormat.setMaxInputSplitSize(job, (long)67108864);
-		// //64MB
+		
 
 		job.setNumReduceTasks(2);
 
-		FileInputFormat.setInputDirRecursive(job, true);
-		FileInputFormat.addInputPath(job, new Path(args[0]));
+	FileInputFormat.setInputDirRecursive(job, true);
+	FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
 		job.waitForCompletion(true);
