@@ -3,6 +3,8 @@ package net.ripe.hadoop.pcap.packet;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.hadoop.io.Text;
+
 public class Packet extends HashMap<String, Object> {
 	private static final long serialVersionUID = 8723206921174160146L;
 
@@ -33,15 +35,21 @@ public class Packet extends HashMap<String, Object> {
 	public static final String TCP_FLAG_SYN = "tcp_flag_syn";
 	public static final String TCP_FLAG_FIN = "tcp_flag_fin";
 	public static final String REASSEMBLED_FRAGMENTS = "reassembled_fragments";
-
+	public static final String TOTAL_SIZE = "tot_size";
+	public static final String NEW_TIMESTAMP = "new_time";
+	
 	public Flow getFlow() {
 		String src = (String)get(Packet.SRC);
 		Integer srcPort = (Integer)get(Packet.SRC_PORT);
 		String dst = (String)get(Packet.DST);
 		Integer dstPort = (Integer)get(Packet.DST_PORT);
 		String protocol = (String)get(Packet.PROTOCOL);
+	
 		return new Flow(src, srcPort, dst, dstPort, protocol);
 	}
+	
+	
+	
 
 	@Override
 	public String toString() {
