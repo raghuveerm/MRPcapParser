@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.List;
 
-import com.calsoftlabs.location.GeoLocation;
-import com.calsoftlabs.schema.Schema;
+import net.ripe.hadoop.pcap.location.GeoLocation;
+import net.ripe.hadoop.pcap.schema.Schema;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;

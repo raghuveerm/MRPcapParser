@@ -9,8 +9,17 @@
 		<version>1.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
+	<properties>
+		<hadoop.client.version>2.4.1</hadoop.client.version>
+	</properties>
 
 	<dependencies>
+	<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop.client.version}</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.dnsjava</groupId>
 			<artifactId>dnsjava</artifactId>
@@ -51,6 +60,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.4</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.12.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.maxmind.geoip</groupId>
+			<artifactId>geoip-api</artifactId>
+			<version>1.2.10</version>
 		</dependency>
 	</dependencies>
 

@@ -6,13 +6,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import net.ripe.hadoop.pcap.mongo.upload.MongoUpload;
 import net.ripe.hadoop.pcap.packet.KeyWritable;
 import net.ripe.hadoop.pcap.packet.ValueWritable;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-import com.calsoftlabs.mongo.upload.MongoUpload;
+
 
 public class PcapReducer extends
 		Reducer<KeyWritable, ValueWritable, KeyWritable, Text> {

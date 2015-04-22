@@ -3,19 +3,21 @@ package net.ripe.hadoop.pcap.io.reader;
 import java.io.IOException;
 
 import net.ripe.hadoop.pcap.io.PcapInputFormat;
+import net.ripe.hadoop.pcap.packet.KeyWritable;
+import net.ripe.hadoop.pcap.packet.ValueWritable;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.ObjectWritable;
 import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.CombineFileSplit;
 
-public class CombinePcapRecordReader extends RecordReader<LongWritable, ObjectWritable> {
+public class CombinePcapRecordReader extends RecordReader<KeyWritable, ValueWritable> {
 	
 	private PcapRecordReader recordReader;
+	
+	
 
 	public CombinePcapRecordReader(CombineFileSplit split, Configuration conf, Integer index) throws IOException {
 		Path path = split.getPath(index);
@@ -38,13 +40,13 @@ public class CombinePcapRecordReader extends RecordReader<LongWritable, ObjectWr
 	}
 
 	@Override
-	public LongWritable getCurrentKey() throws IOException, InterruptedException {
+	public KeyWritable getCurrentKey() throws IOException, InterruptedException {
 		
 		return recordReader.getCurrentKey();
 	}
 
 	@Override
-	public ObjectWritable getCurrentValue() throws IOException, InterruptedException {
+	public ValueWritable getCurrentValue() throws IOException, InterruptedException {
 		
 		return recordReader.getCurrentValue();
 	}
