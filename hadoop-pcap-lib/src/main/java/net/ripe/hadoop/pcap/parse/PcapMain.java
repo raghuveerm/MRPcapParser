@@ -1,6 +1,7 @@
 package net.ripe.hadoop.pcap.parse;
 
 
+
 import org.apache.hadoop.util.ProgramDriver;
 
 
@@ -16,10 +17,7 @@ public class PcapMain {
 		try {
 			pgd.addClass("pcap", PcapJobRunner.class,
 					"A map/reduce program that samples the schemas for every 5 msec for a particular client download");
-
 			
-			// pgd.addClass("pcap", PcapJobRunner.class,
-			// "A map/reduce program that samples the schemas for every 5 msec for a particular client upload");
 			exitCode = pgd.run(args);
 
 		} catch (Throwable e) {

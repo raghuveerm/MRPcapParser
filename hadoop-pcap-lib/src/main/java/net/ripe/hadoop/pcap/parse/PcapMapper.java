@@ -1,4 +1,6 @@
 package net.ripe.hadoop.pcap.parse;
+
+
 import java.io.IOException;
 
 import net.ripe.hadoop.pcap.packet.KeyWritable;
@@ -39,7 +41,7 @@ public class PcapMapper extends Mapper<KeyWritable, ValueWritable, KeyWritable, 
 		VALUE.setDstPort(destPort);
 		VALUE.setTimeStamp(timestamp);
 		VALUE.setDownloadTraffic(traffic);
-	
+		
 
 		context.write(KEY,VALUE);
 	}
