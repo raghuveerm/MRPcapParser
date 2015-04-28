@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import net.ripe.hadoop.pcap.mongo.MongoUpload;
+import net.ripe.hadoop.pcap.mongo.upload.MongoUpload;
 import net.ripe.hadoop.pcap.packet.KeyWritable;
 import net.ripe.hadoop.pcap.packet.ValueWritable;
 
