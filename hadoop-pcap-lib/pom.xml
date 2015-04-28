@@ -81,4 +81,44 @@
 			<url>https://api.bintray.com/maven/hadoop-pcap/hadoop-pcap/hadoop-pcap-lib</url>
 		</repository>
 	</distributionManagement>
+	
+	<build>
+		<plugins>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.7.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<!-- signed jars -->
+								<excludes>
+									<exclude>bouncycastle:bcprov-jdk15</exclude>
+								</excludes>
+							</artifactSet>
+
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<!-- Main class -->
+									<mainClass>net.ripe.hadoop.pacp.parse.PcapMain</mainClass>
+								</transformer>
+
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+
+	</build>
+	
 </project>
