@@ -1,5 +1,4 @@
-package net.ripe.hadoop.pcap.parse;
-
+package net.ripe.pcap.parse;
 
 import java.io.IOException;
 
